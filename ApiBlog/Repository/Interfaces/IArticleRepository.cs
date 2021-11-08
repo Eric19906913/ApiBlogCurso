@@ -1,11 +1,8 @@
 ﻿using ApiBlog.Entities;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
-namespace ApiBlog.Repository
+namespace ApiBlog.Repository.Interfaces
 {
     public interface IArticleRepository : IGenericRepository<Article>
     {
-        Task<IEnumerable<Article>> GetArticlesAsync();
     }
 }
