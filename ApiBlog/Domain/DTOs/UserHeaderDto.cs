@@ -1,6 +1,6 @@
 ﻿namespace ApiBlog.Domain.DTOs
 {
-    public class UserHeaderDto : BaseDto
+    public class UserHeaderDto
     {
         public string Name { get; set; }
         public string Username { get; set; }
