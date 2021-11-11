@@ -3,64 +3,90 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace ApiBlog.Repository
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
     {
-        private readonly AppDbContext appDbContext;
-        private readonly DbSet<T> DbSet;
+        private readonly AppDbContext _appDbContext;
+        private readonly DbSet<T> _dbSet;
+        private bool disposedValue;
+
         public GenericRepository(AppDbContext dbContext) 
         {
-            this.appDbContext = dbContext;
-            this.DbSet = appDbContext.Set<T>();
+            this._appDbContext = dbContext;
+            this._dbSet = _appDbContext.Set<T>();
         }
         public async Task CreateAsync(T entity)
         {
-            if (entity == null) 
+            if (entity is null)
             {
                 throw new ArgumentNullException(nameof(entity));
             }
-            await DbSet.AddAsync(entity);
+
+            await _dbSet.AddAsync(entity);
         }
 
-        public void Dispose()
+        public async Task<bool> ExistsAsync(Guid id)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> ExistsAsync(Guid id)
-        {
-            return Task.FromResult(DbSet.Any(a => a.Id == id));
+            return await Task.FromResult(_dbSet.Any(a => a.Id == id));
         }
 
         public async Task<IEnumerable<T>> GetAllAsync()
         {
-            return await DbSet.ToListAsync();
+            return await _dbSet.ToListAsync();
         }
 
         public async Task<T> GetAsync(Guid id)
         {
-            if (id == Guid.Empty) throw new ArgumentNullException("The id could not be empty");
-            var entity = await DbSet.FindAsync(id);
+            if (id == Guid.Empty) throw new ArgumentNullException(nameof(id), "The id could not be empty");
+            var entity = await _dbSet.FindAsync(id);
             return entity;
         }
 
-        public Task RemoveAsync(Guid id)
+        public async Task RemoveAsync(Guid id)
         {
-            throw new NotImplementedException();
+            throw await Task.FromResult(new NotImplementedException());
         }
 
-        public Task RemoveAsync(T entity)
+        public async Task RemoveAsync(T entity)
         {
-            throw new NotImplementedException();
+            throw await Task.FromResult(new NotImplementedException());
         }
 
-        public Task UpdateAsync(T entity)
+        public async Task UpdateAsync(T entity)
         {
-            throw new NotImplementedException();
+            throw await Task.FromResult(new NotImplementedException());
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    // TODO: dispose managed state (managed objects)
+                }
+
+                // TODO: free unmanaged resources (unmanaged objects) and override finalizer
+                // TODO: set large fields to null
+                disposedValue = true;
+            }
+        }
+
+        // // TODO: override finalizer only if 'Dispose(bool disposing)' has code to free unmanaged resources
+        // ~GenericRepository()
+        // {
+        //     // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+        //     Dispose(disposing: false);
+        // }
+
+        public void Dispose()
+        {
+            // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
         }
     }
 }

@@ -9,26 +9,26 @@ namespace ApiBlog.Services
 {
     public class ArticleServices : IArticleService
     {
-        private readonly IUnitOfWork uow;
-        private readonly IMapper mapper;
+        private readonly IUnitOfWork _uow;
+        private readonly IMapper _mapper;
         public ArticleServices(IUnitOfWork unitOfWork, IMapper mapper) 
         {
-            this.uow = unitOfWork;
-            this.mapper = mapper;
+            this._uow = unitOfWork;
+            this._mapper = mapper;
         }
 
         public async Task<IEnumerable<ArticleDto>> GetAllArticlesAsync() 
         {
-            var articles = await uow.articleRepository.GetAllAsync();
+            var articles = await _uow.ArticleRepository.GetAllAsync();
 
-            return mapper.Map<IEnumerable<ArticleDto>>(articles);
+            return _mapper.Map<IEnumerable<ArticleDto>>(articles);
         }
 
         public async Task<ArticleDto> GetByIdAsync(Guid id) 
         {
-            var article = await uow.articleRepository.GetAsync(id);
+            var article = await _uow.ArticleRepository.GetAsync(id);
 
-            return mapper.Map<ArticleDto>(article);
+            return _mapper.Map<ArticleDto>(article);
         }
     }
 }
