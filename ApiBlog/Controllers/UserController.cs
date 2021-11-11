@@ -10,7 +10,7 @@ namespace ApiBlog.Controllers
         [HttpGet]
         public async Task<IActionResult> GetUsers() 
         {
-            return Ok();
+            return await Task.FromResult(Ok());
         }
     }
 }

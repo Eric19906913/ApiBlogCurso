@@ -1,6 +1,4 @@
-﻿using ApiBlog.Repository;
-using ApiBlog.Services;
-using AutoMapper;
+﻿using ApiBlog.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -10,16 +8,17 @@ namespace ApiBlog.Controllers
     [Route("api/articles")]
     public class ArticleController : ControllerBase
     {
-        private IArticleService articleService;
+        private readonly IArticleService _articleService;
+
         public ArticleController(IArticleService articleService)
         {
-            this.articleService = articleService;
+            this._articleService = articleService;
         }
 
         [HttpGet]
         public IActionResult GetAllArticles()
         {
-            var articles = articleService.GetAllArticlesAsync();
+            var articles = _articleService.GetAllArticlesAsync();
             return Ok(articles);
         }
 
@@ -27,7 +26,7 @@ namespace ApiBlog.Controllers
         [Route("/{articleId}")]
         public IActionResult GetArticle(Guid articleId)
         {
-            var article = articleService.GetByIdAsync(articleId);
+            var article = _articleService.GetByIdAsync(articleId);
 
             return Ok(article);
         }

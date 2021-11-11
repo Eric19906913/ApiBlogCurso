@@ -9,7 +9,7 @@ namespace ApiBlog.Repository.EntityConfiguration
         public void Configure(EntityTypeBuilder<User> builder)
         {
             builder.HasKey(u => u.Id);
-            builder.Property(u => u.UserName).IsRequired();
+            builder.Property(u => u.Username).IsRequired();
             builder.Property(u => u.Password).IsRequired();
             builder.Property(u => u.Name).IsRequired();
             builder.Property(u => u.Email).IsRequired();

@@ -5926,22 +5926,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ehaas\\.nuget\\packages\\": {}
+    "C:\\Users\\spelle\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ehaas\\source\\repos\\ApiBlog\\ApiBlog\\ApiBlog.csproj",
+      "projectUniqueName": "C:\\GIT\\CursoCsharp\\_Comisiones\\_Comision_2021_1\\Eric\\ApiBlogCurso\\ApiBlog\\ApiBlog.csproj",
       "projectName": "ApiBlog",
-      "projectPath": "C:\\Users\\ehaas\\source\\repos\\ApiBlog\\ApiBlog\\ApiBlog.csproj",
-      "packagesPath": "C:\\Users\\ehaas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ehaas\\source\\repos\\ApiBlog\\ApiBlog\\obj\\",
+      "projectPath": "C:\\GIT\\CursoCsharp\\_Comisiones\\_Comision_2021_1\\Eric\\ApiBlogCurso\\ApiBlog\\ApiBlog.csproj",
+      "packagesPath": "C:\\Users\\spelle\\.nuget\\packages\\",
+      "outputPath": "C:\\GIT\\CursoCsharp\\_Comisiones\\_Comision_2021_1\\Eric\\ApiBlogCurso\\ApiBlog\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ehaas\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\NuGet.config"
+        "C:\\Users\\spelle\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -5993,12 +5991,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[5.0.9, 5.0.9]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -6007,7 +5999,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-rc.1.21463.6\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

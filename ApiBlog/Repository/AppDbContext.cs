@@ -5,9 +5,9 @@ namespace ApiBlog.Repository
 {
     public class AppDbContext : DbContext
     {
-        DbSet<User> Users { get; set; }
-        DbSet<Article> Articles {  get; set; }
-        DbSet<Comment> Comments {  get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Article> Articles {  get; set; }
+        public DbSet<Comment> Comments {  get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) 
         {
