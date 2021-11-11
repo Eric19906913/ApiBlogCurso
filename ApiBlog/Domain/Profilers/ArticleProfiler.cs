@@ -4,11 +4,11 @@ using AutoMapper;
 
 namespace ApiBlog.Domain.Profilers
 {
-    public class UserProfiler : Profile
+    public class ArticleProfiler : Profile
     {
-        public UserProfiler() 
+        public ArticleProfiler() 
         {
-            CreateMap<User, UserHeaderDto>();
+            this.CreateMap<Article, ArticleDto>();
         }
     }
 }
